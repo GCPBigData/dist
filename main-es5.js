@@ -803,6 +803,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }, 0);
         }
       }, {
+        key: "teste",
+        value: function teste() {
+          // tslint:disable-next-line:max-line-length
+          var snd = new Audio('https://firebasestorage.googleapis.com/v0/b/putas-666.appspot.com/o/w.mp3?alt=media&token=5c2ee5fc-0716-430d-94cf-d778d20b90e9');
+          snd.play();
+        }
+      }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
           var _this2 = this;
@@ -885,6 +892,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "sendMessage",
         value: function sendMessage(message) {
+          this.teste();
+
           if (!message) {
             return;
           }
@@ -893,12 +902,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             from: this.user,
             content: message
           });
+          this.teste();
           this.messageContent = null;
         }
       }, {
         key: "sendNotification",
         value: function sendNotification(params, action) {
           var message;
+          this.teste();
 
           if (action === _shared_model_action__WEBPACK_IMPORTED_MODULE_3__["Action"].JOINED) {
             message = {
@@ -915,11 +926,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             };
           }
 
+          this.teste();
           this.socketService.send(message);
         }
       }, {
         key: "switchLanguage",
         value: function switchLanguage(language) {
+          this.teste();
           this.translate.use(language);
         }
       }]);

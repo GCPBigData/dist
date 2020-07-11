@@ -407,6 +407,11 @@ class ChatComponent {
             this.openUserPopup(this.defaultDialogUserParams);
         }, 0);
     }
+    teste() {
+        // tslint:disable-next-line:max-line-length
+        const snd = new Audio('https://firebasestorage.googleapis.com/v0/b/putas-666.appspot.com/o/w.mp3?alt=media&token=5c2ee5fc-0716-430d-94cf-d778d20b90e9');
+        snd.play();
+    }
     ngAfterViewInit() {
         this.matListItems.changes.subscribe(elements => {
             this.scrollToBottom();
@@ -471,6 +476,7 @@ class ChatComponent {
         });
     }
     sendMessage(message) {
+        this.teste();
         if (!message) {
             return;
         }
@@ -478,10 +484,12 @@ class ChatComponent {
             from: this.user,
             content: message
         });
+        this.teste();
         this.messageContent = null;
     }
     sendNotification(params, action) {
         let message;
+        this.teste();
         if (action === _shared_model_action__WEBPACK_IMPORTED_MODULE_3__["Action"].JOINED) {
             message = {
                 from: this.user,
@@ -497,9 +505,11 @@ class ChatComponent {
                 }
             };
         }
+        this.teste();
         this.socketService.send(message);
     }
     switchLanguage(language) {
+        this.teste();
         this.translate.use(language);
     }
 }
