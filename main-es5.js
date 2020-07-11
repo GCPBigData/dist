@@ -797,8 +797,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this = this;
 
-          this.initModel(); // Using timeout due to https://github.com/angular/angular/issues/14748
-
+          this.initModel();
           setTimeout(function () {
             _this.openUserPopup(_this.defaultDialogUserParams);
           }, 0);
@@ -808,13 +807,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngAfterViewInit() {
           var _this2 = this;
 
-          // subscribing to any changes in the list of items / messages
           this.matListItems.changes.subscribe(function (elements) {
             _this2.scrollToBottom();
           });
-        } // auto-scroll fix: inspired by this stack overflow post
-        // https://stackoverflow.com/questions/35232731/angular2-scroll-to-bottom-chat-style
-
+        }
       }, {
         key: "scrollToBottom",
         value: function scrollToBottom() {
@@ -1697,6 +1693,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var socket_io_client__WEBPACK_IMPORTED_MODULE_2___default =
     /*#__PURE__*/
     __webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_2__);
+    /* harmony import */
+
+
+    var tslint_lib_verify_lines__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! tslint/lib/verify/lines */
+    "./node_modules/tslint/lib/verify/lines.js");
+    /* harmony import */
+
+
+    var tslint_lib_verify_lines__WEBPACK_IMPORTED_MODULE_3___default =
+    /*#__PURE__*/
+    __webpack_require__.n(tslint_lib_verify_lines__WEBPACK_IMPORTED_MODULE_3__);
+    /*const SERVER_URL = 'localhost:8080';*/
+
 
     var SERVER_URL = '191.252.204.57:8080';
 
@@ -1710,11 +1720,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(SocketService, [{
         key: "initSocket",
         value: function initSocket() {
+          Object(tslint_lib_verify_lines__WEBPACK_IMPORTED_MODULE_3__["printLine"])('===========1===========');
           this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2__(SERVER_URL);
         }
       }, {
         key: "send",
         value: function send(message) {
+          Object(tslint_lib_verify_lines__WEBPACK_IMPORTED_MODULE_3__["printLine"])('===========2===========');
           this.socket.emit('message', message);
         }
       }, {
@@ -1733,6 +1745,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function onEvent(event) {
           var _this6 = this;
 
+          Object(tslint_lib_verify_lines__WEBPACK_IMPORTED_MODULE_3__["printLine"])('===========3===========');
           return new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
             _this6.socket.on(event, function () {
               return observer.next();
